@@ -11,42 +11,115 @@ I use an Apple M1 Pro Macbook Pro 14 inches laptop with 16GB RAM and 500GB SSD w
 
 #### SO settings
 
-These are my preferred settings for `Desktop`, `Dock`, `Finder`, and `Preview App` with external installations.
+These are my preferred settings for `Desktop`, `Dock`, `Finder`, `Ghostty`, `HomeBrew`, `Zsh`, `Oh my Posh`, and `Preview App` with external installations.
 
 - `System Preferences -> Desktop & Dock`
 	- `Dock`
-		- Size 25% - Magnification 75%
+		- Size 25% - Magnification 65%
 		- Position on screen -> `Bottom`
-		- Minimize windows using -> `Genie Effect`
-		- Double-click a window's title bar to -> `Zoom`
+		- Minimize windows using -> `Scale Effect`
+		- Double-click a window's title bar to -> `Fill`
 		- Minimize windows into application icon -> ✅
-		- Automatically hide and show the Dock -> ❌
+		- Automatically hide and show the Dock -> ✅
 		- Animate opening applications -> ✅
 		- Show indicators for open applications -> ✅
 		- Show suggested and recent apps in Dock -> ❌
 	- `Desktop & State Manager`
-		- Show items -> `On Desktop`
+		- Show items -> `On Desktop` & `in State Manager`
 		- Click wallpaper to reveal desktop -> `Always`
 		- State Manager -> ❌
 		- Show recent apps in State Manager -> ❌
 		- Show windows from an application -> `All at Once`
 	- `Widgets`
-		- Show Widgets -> `On Desktop ✅` -- `In State Manager ✅`
+		- Show Widgets -> `On Desktop ✅` -- `In State Manager ❌`
 		- Widget style -> `Monochrome`
 		- Use iPhone widgets -> ✅
 		- Default web browser -> `Openin.app`
 	- `Windows`
 		- Prefer tabs when opening documents -> `In Full Screen`
-		- Ask to keep changes when closing documents -> ❌
+		- Ask to keep changes when closing documents -> ✅
 		- Close windows when quitting an aplication -> ✅
+		- Drag windows to screen edges to tile -> ✅
+		- Drag windows to menu bar to fill screen -> ✅
+		- Hold ⌥ key while dragging windows to tile -> ✅
+		- Tiled windows have margins -> ❌
 	- `Mission Control`
-		- Automatically rearrange Spaces based on most recent use -> ✅
-		- When switching to an application, switch to a Space with open windows for the application -> ❌
+		- Automatically rearrange Spaces based on most recent use -> ❌
+		- When switching to an application, switch to a Space with open windows for the application -> ✅
 		- Group windows by application -> ❌
 		- Displays have separate Spaces -> ✅
+		- Drag windows to top of screen to enter Mission Control -> ✅
 	- `Hot Corners`
 		- RT - `Command key + mouse -> Lock Screen`
 		- RB - `Command key + mouse -> Desktop`
+	- `Keyboard`
+		- Press (world icon) key to - `Do Nothing`
+		- Keyboard Navigation -> ❌
+		- `Text Input`
+			- INPUT SOURCES -> `ABC, Latin American, Japanese - Romaji`
+			- Show input menu in menu bar -> ✅
+			- Use the Caps Lock key to switch to and from last used Latin input source -> ❌
+			- Correct spelling automatically -> ✅
+			- Capitalize words automatically -> ✅
+			- Show inline predictive text -> ✅
+			- Add period with double-space -> ❌
+			- Spelling -> `Automatic by Language`
+			- Use smart quotes and dashes -> ✅
+			- For double quotes -> `"abc"`
+			- For single quotes -> `'abc'`
+		- `Keyboard Shortcuts`
+			- `Launchpad & Dock`
+				- Turn Dock hiding on/off -> ❌
+				- Show Launchpad -> ❌
+			- `Display`
+				- All -> ✅
+			- `Mission Control`
+				- Mission Control -> ❌
+				- Show Notification Center -> ❌
+				- Turn Do not Disturb on/off -> ❌
+				- Application windows -> ✅
+				-Show Desktop -> ❌
+				- Turn Stage Manager on/off -> ❌
+				- Mission Control -> ✅
+					- Move left a space -> `⌃ ←`
+					- Move right a space -> `⌃ →`
+					- Switch to Desktop 1 -> `⌃ 1`
+				` Quick Note -> ❌
+			- `Windows`
+				- `General`
+					- Minimize -> `⌘ M`
+					- Zoom -> ❌
+					- Fill -> `⌃ ⌥ ⌘ ↑`
+					- Center -> `⌃ ⌥ ⌘ ↓`
+					- Return to Previous Size -> `⌃ ⌥ ⌘ R`
+				- `Halves`
+					- Tile Left Half -> `⌃ ⌥ ⌘ ←`
+					- Tile Right Half -> `⌃ ⌥ ⌘ →`
+					- Tile Top Half -> ❌
+					- Tile Bottom Half -> ❌
+				- `Quarters` -> ❌
+				- `Arrange`
+					- Arrange Left and Right -> `⌃ ⌘ ←`
+					- Arrange Right and Left -> `⌃ ⌘ →`
+					- Arrange Top and Bottom -> ❌
+					- Arrange Bottom and Top -> ❌
+					- Arrange in Quarters -> `⌃ ⌘ ↓`
+				- `Full Screen Tile` -> ❌
+			- `Keyboard`
+				- Everything off except for:
+					- Move focus to next windows -> `⌘ ⇥`
+			- `Input Sources`
+				- Select the previous input source -> ❌
+				- Select next source in input menu -> `⌃ ⌥ ⌘ Space`
+			- `Screenshots` -> ❌
+			- `Presenter Overlay` -> ❌
+			- `Services` -> ❌
+			- `Spotlight` -> ❌
+			- `Accessibility` -> ❌
+			- `App Shortcuts` -> ❌
+			- `Function keys` -> ❌
+			- `Modifier Keys` -> `default`
+
 - `FINDER -> Settings`
 	- `Advanced`
 		- ✅ Show all filename extensions
@@ -91,6 +164,7 @@ These are my preferred settings for `Desktop`, `Dock`, `Finder`, and `Preview Ap
 			- ❌ Connected servers
 		- New finder windows show:
 			- `roganoalien` [folder]
+		- ✅ Sync Desktop & Documents folders
 		- ✅ Open folders in tabs instead of new windows
 - `Finder -> View -> View Options`
 	- ❌ Always open in list view
@@ -112,7 +186,7 @@ These are my preferred settings for `Desktop`, `Dock`, `Finder`, and `Preview Ap
 		- ✅ Last opened
 	- ✅ Show Quick Actions
 
-#### Appearance
+#### System Settings -> Appearance
 
 `Auto` instead of having only light or dark mode and `multicolor` as accent and highlight color
 
@@ -133,10 +207,6 @@ These are my preferred settings for `Desktop`, `Dock`, `Finder`, and `Preview Ap
 		- Disable everything (for CleanShot App)
 	- `Spotlight`
 		- Disable everything (for Alfred App)
-- `Input Sources`
-	- Add
-		- ABC
-		- Latin American
 
 ## Homebrew
 
