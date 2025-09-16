@@ -224,20 +224,11 @@ After Homebrew is done installing, we will use it (via Alfred) to install everyt
 
 ### Install formulae and casks from brew
 
-In the repo there are two files:
+`brew-packages.txt` have the information of all formulaes and casks from `Brew`. In order to install those with the file. All you have to do is run the following bash command:
 
-- `brew-cask.txt` -- a list of brew cask packages
-- `brew-formulae.txt` -- a list of brew formulaes
-
-They're split in order to work and avoid errors about not finding some packages.
-
-To install them you need to run `brew install $(cat brew-formulae.txt)` but you need to be inside the current repo folder. And do the exact same for the `brew-cask.txt` file with a little differnce: 
-
-`brew install --cask $(cat brew-cask.txt)`
-
-In case it all fails then we will try the same installation with: 
-
-`xargs brew install > brew-cask.txt` && `xargs brew install > brew-formulae.txt`
+```shell
+brew bundle --file=<url_of_file>
+```
 
 #### Install Nerd Fonts
 
@@ -280,50 +271,11 @@ App to run postgres DB server [GUI APP]
 
 - [Power Tab Editor](https://powertab.github.io/)
 
-##### Appstore apps 
-
-- Color Picker [System Color Picker]
-- Gapplin [SVG preview]
-- Pure Paste [Paste without format]
-- Infuse [Video Player]
-- Contrast [Contrast Evaluation from colors]
-- Logic Pro
-- Lottie Files [Lottie Animations Viewer]
-- Encrypto
-- Colorslurp
-- The Unarchiver
-- Shazam
-- Logitech app for mouses
-
-##### Setapp Apps 
-
-Setapp is a subscription based appstore that lets you install every app from their store without paying extra. These are the apps that I've used: 
-
-- CleanMyMac X (Clean garbage and temp files, uninstall apps, etc)
-- Time Out (Pomodoro app)
-- CleanShot X (Take better screenshots)
-- Pareto Security (Checks for security stuff in your mac and lets you know whats wrong and how to fix it)
-- Rocket Typist (Snippets through keyboard shortcut)
-- Openin (Default browser to make everylink to ask in which browser would you like to open the link in)
-- In Your Face (fullscreen meetings notification to prevent skiping them or not seeing them)
-- Craft (Note taking app)
-- TablePlus (DB GUI visualizer and config)
-- Lungo (Keep your mac awake)
-- PDF Squeezer (Compress PDFs)
-- Paletro (Access app menu commands through a keyboard shortcut)
-- Batteries (display battery level of all your devices connected via bluetooth)
-- DevUtils (Dev various utils)
-- Dropzone (download and connect to server and other utils)
-
 ## Alfred
 
 [Alfred](https://www.alfredapp.com/) is a great app that replaces Spotlight. Although there are multiple ways to install it. In this repo it has already been handled by brew with the casks. `Warning`: it needs the powerpack in order to work correctly.
 
 All the config for Alfred is in [my own repository](https://github.com/roganoalien/alfred4-config)
-
-### Alfred Homebrew Plugin
-
-Install the [Alfred Homebrew Plugin](https://github.com/fniephaus/alfred-homebrew/releases) so we can easily install formulae and casks directly from Alfred.
 
 ## Visual Studio Code
 
@@ -331,219 +283,58 @@ Configuration for my VSCode app.
 
 ##### Extensions installed
 
-```md
-aaron-bond.better-comments
-amazonwebservices.amazon-q-vscode
-amazonwebservices.aws-toolkit-vscode
-amazonwebservices.codewhisperer-for-command-line-companion
-attilabuti.vscode-mjml
-beardedbear.beardedicons
-bierner.jsdoc-markdown-highlighting
-biomejs.biome
-bitbelt.converttoasciiart
-blanu.vscode-styled-jsx
-bradgashler.htmltagwrap
-bradlc.vscode-tailwindcss
-chakrounanas.turbo-console-log
-christian-kohler.npm-intellisense
-christian-kohler.path-intellisense
-csstools.postcss
-dbaeumer.vscode-eslint
-denoland.vscode-deno
-dotenv.dotenv-vscode
-editorconfig.editorconfig
-enkia.tokyo-night
-esbenp.prettier-vscode
-evondev.indent-rainbow-palettes
-file-icons.file-icons
-golang.go
-graphql.vscode-graphql
-graphql.vscode-graphql-execution
-graphql.vscode-graphql-syntax
-jerryhong.autofilename
-keyring.lua
-kisstkondoros.vscode-gutter-preview
-logerfo.procfile-support
-meezilla.json
-mgmcdermott.vscode-language-babel
-mhutchie.git-graph
-ms-azuretools.vscode-docker
-ms-python.debugpy
-ms-python.isort
-ms-python.python
-ms-python.vscode-pylance
-ms-vscode.cmake-tools
-ms-vscode.cpptools
-ms-vscode.cpptools-extension-pack
-ms-vscode.cpptools-themes
-msjsdiag.vscode-react-native
-naumovs.color-highlight
-oderwat.indent-rainbow
-prisma.prisma
-quick-lint.quick-lint-js
-rafamel.subtle-brackets
-snyk-security.snyk-vulnerability-scanner
-steoates.autoimport
-sumneko.lua
-tushortz.python-extended-snippets
-unifiedjs.vscode-mdx
-usernamehw.errorlens
-virgilsisoe.hammerspoon
-vunguyentuan.vscode-postcss
-waderyan.gitblame
-willluke.nextjs
-wix.vscode-import-cost
-yoavbls.pretty-ts-errors
-quicktype.quicktype
-```
-
-###### Installation of extensions
-
-The list of extensions need to be inside a `.txt` file and then run the following command
+The file `vscode-extensions.txt` contains a list of all installed apps for my vscode. In order to install them I need to do the following:
 
 ```shell
-cat vs-extensions.txt | xargs -L1 code --install-extension
+curl -fsSL https://raw.githubusercontent.com/rmmgc/vscode-extensions-bulk-install/main/bulk-install.sh | sh -s <path_to_input_file>
 ```
 
-###### Uninstall extensions
+LETS BE SURE TO REPLACE PATH_TO_INPUT_FILE
 
-Do the same but change the last part of shell code
+##### VSCode Settings JSON
 
-```shell
-cat vs-extensions.txt | xargs -L1 code --uninstall-extension
-```
-
-##### VSCode biome formatter
-
-Change the following commands to allow biome
-
-```json
-	"[javascript]": {
-		"editor.defaultFormatter": "biomejs.biome"
-	},
-	"[javascriptreact]": {
-		"editor.defaultFormatter": "biomejs.biome"
-	},
-	"[json]": {
-		"editor.defaultFormatter": "biomejs.biome"
-	},
-	"editor.codeActionsOnSave": {
-		"quickfix.biome": "always",
-		"source.organizeImports.biome": "always"
-	},
-	"[html]": {
-		"editor.defaultFormatter": "biomejs.biome",
-	},
-	"[jsonc]": {
-		"editor.defaultFormatter": "biomejs.biome"
-	},
-	"[typescriptreact]": {
-		"editor.defaultFormatter": "vscode.typescript-language-features",
-		"editor.defaultFormatter": "biomejs.biome"
-	},
-```
-
-##### VSCode settings
+Paste the folowing inside settings.json
 
 ```json
 {
-	"workbench.colorCustomizations": {},
-	"workbench.iconTheme": "file-icons",
-	"files.associations": {
-		"*.ejs": "html",
-		"html": "html",
-		"javascript": "html",
-		".env*": "dotenv",
-		"*.css": "tailwindcss"
+	"autoimport.showNotifications": true,
+	"diffEditor.ignoreTrimWhitespace": false,
+	"dotenv.enableAutocloaking": false,
+	"editor.accessibilitySupport": "off",
+	"editor.bracketPairColorization.enabled": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit",
+		"source.organizeImports.biome": "explicit",
+		"source.action.useSortedProperties.biome": "explicit",
+		"source.action.useSortedKeys.biome": "explicit",
+		"source.fixAll": "explicit",
+		"quickfix.biome": "explicit"
 	},
 	"editor.colorDecorators": false,
-	"editor.cursorWidth": 3,
-	"editor.renderWhitespace": "all",
-	"javascript.updateImportsOnFileMove.enabled": "always",
-	"editor.insertSpaces": false,
+	"editor.cursorBlinking": "expand",
+	"editor.cursorSmoothCaretAnimation": "on",
 	"editor.cursorSurroundingLines": 5,
+	"editor.cursorWidth": 3,
+	"editor.detectIndentation": false,
+	"editor.fontFamily": "'Fira Code', Menlo, Monaco, 'Courier New', monospace",
+	"editor.fontLigatures": true,
+	"editor.fontSize": 15,
+	"editor.formatOnPaste": true,
+	"editor.formatOnSave": true,
+	"editor.guides.bracketPairs": "active",
+	"editor.insertSpaces": false,
+	"editor.linkedEditing": true,
+	"editor.matchBrackets": "always",
+	"editor.quickSuggestions": {
+		"strings": true
+	},
+	"editor.renderWhitespace": "all",
+	"editor.semanticHighlighting.enabled": true,
+	"editor.snippetSuggestions": "inline",
+	"editor.stickyScroll.enabled": true,
+	"editor.suggestSelection": "first",
 	"editor.tabCompletion": "on",
 	"editor.tabSize": 4,
-	"diffEditor.ignoreTrimWhitespace": false,
-	"editor.fontLigatures": true,
-	"[javascript]": {
-		"editor.fontLigatures": "'ss02', 'ss19'"
-	},
-	"editor.detectIndentation": false,
-	"editor.wrappingIndent": "indent",
-	"emmet.includeLanguages": {
-		"nunjucks": "html",
-		"javascript": "javascriptreact",
-		"typescript": "typescriptreact"
-	},
-	"emmet.triggerExpansionOnTab": true,
-	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": "explicit"
-	},
-	"editor.fontFamily": "'Fira Code', Menlo, Monaco, 'Courier New', monospace",
-	"editor.fontSize": 13,
-	"editor.semanticHighlighting.enabled": false,
-	"[mjml]": {
-		"editor.useTabStops": true,
-		"editor.tabSize": 4
-	},
-	"indentRainbow.errorColor": "rgba(243,123,130,0.1)",
-	"indentRainbow.colors": [
-		"rgba(3, 4, 94,0.15)",
-		"rgba(2, 62, 138,0.15)",
-		"rgba(0, 119, 182, 0.15)",
-		"rgba(0, 150, 199,0.15)",
-		"rgba(0, 180, 216,0.15)",
-		"rgba(72, 202, 228,0.15)",
-		"rgba(144, 224, 239,0.15)",
-		"rgba(144, 224, 239,0.1)",
-		"rgba(144, 224, 239,0.05)",
-		"rgba(144, 224, 239,0.025)"
-	],
-	"[plaintext]": {
-		"editor.quickSuggestions": {
-			"other": false,
-			"comments": false,
-			"strings": false
-		}
-	},
-	"editor.matchBrackets": "always",
-	"editor.suggestSelection": "first",
-	"[dart]": {
-		"editor.formatOnSave": true,
-		"editor.formatOnType": true,
-		"editor.rulers": [80],
-		"editor.selectionHighlight": false,
-		"editor.suggest.snippetsPreventQuickSuggestions": false,
-		"editor.suggestSelection": "first",
-		"editor.tabCompletion": "onlySnippets",
-		"editor.wordBasedSuggestions": "off"
-	},
-	"security.workspace.trust.untrustedFiles": "open",
-	"[typescriptreact]": {
-		"editor.defaultFormatter": "vscode.typescript-language-features"
-	},
-	"editor.bracketPairColorization.enabled": true,
-	"editor.guides.bracketPairs": "active",
-	"editor.cursorBlinking": "expand",
-	"[prisma]": {
-		"editor.defaultFormatter": "Prisma.prisma"
-	},
-	"terminal.integrated.env.osx": {
-		"FIG_NEW_SESSION": "1",
-		"CW_NEW_SESSION": "1",
-		"Q_NEW_SESSION": "1"
-	},
-	"editor.accessibilitySupport": "off",
-	"editor.formatOnPaste": true,
-	"workbench.list.smoothScrolling": true,
-	"workbench.statusBar.visible": true,
-	"workbench.sideBar.location": "right",
-	"workbench.editor.showTabs": "none",
-	"telemetry.telemetryLevel": "off",
-	"autoimport.showNotifications": true,
-	"git.autofetch": true,
-	"terminal.integrated.fontFamily": "MesloLGL Nerd Font Mono",
 	"editor.tokenColorCustomizations": {
 		"[*Light*]": {
 			"textMateRules": [
@@ -567,8 +358,44 @@ Change the following commands to allow biome
 		},
 		"textMateRules": []
 	},
-	"editor.formatOnSave": true,
-	"dotenv.enableAutocloaking": false,
+	"editor.wrappingIndent": "indent",
+	"emmet.includeLanguages": {
+		"nunjucks": "html",
+		"javascript": "javascriptreact",
+		"typescript": "typescriptreact"
+	},
+	"emmet.triggerExpansionOnTab": true,
+	"files.associations": {
+		"*.ejs": "html",
+		"html": "html",
+		"javascript": "html",
+		".env*": "dotenv",
+		"*.css": "tailwindcss",
+		"*.mjs": "javascript",
+		"nvim": "lua"
+	},
+	"git.autofetch": true,
+	"git.openRepositoryInParentFolders": "never",
+	"indentRainbow.errorColor": "rgba(243,123,130,0.25)",
+	"indentRainbow.colors": [
+		"rgba(3, 4, 94,0.15)",
+		"rgba(2, 62, 138,0.15)",
+		"rgba(0, 119, 182, 0.15)",
+		"rgba(0, 150, 199,0.15)",
+		"rgba(0, 180, 216,0.15)",
+		"rgba(72, 202, 228,0.15)",
+		"rgba(144, 224, 239,0.15)",
+		"rgba(144, 224, 239,0.1)",
+		"rgba(144, 224, 239,0.05)",
+		"rgba(144, 224, 239,0.025)"
+	],
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"security.workspace.trust.untrustedFiles": "open",
+	"subtleBrackets.disableNative": false,
+	"subtleBrackets.style": {
+		"borderWidth": "2px",
+		"borderStyle": "none none solid none"
+	},
 	"tailwindCSS.experimental.classRegex": [
 		["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
 	],
@@ -580,32 +407,151 @@ Change the following commands to allow biome
 		"**/.json/**",
 		"**/.d.ts/**"
 	],
-	"tailwindCSS.showPixelEquivalents": true,
 	"tailwindCSS.hovers": true,
-	"subtleBrackets.disableNative": false,
-	"subtleBrackets.style": {
-		"borderWidth": "2px",
-		"borderStyle": "none none solid none"
+	"tailwindCSS.includeLanguages": {
+		"typescript": "javascript",
+		"typescriptreact": "javascript"
 	},
-	"github.copilot.enable": {
-		"*": true,
-		"plaintext": false,
-		"markdown": false,
-		"scminput": false
+	"tailwindCSS.showPixelEquivalents": true,
+	"telemetry.telemetryLevel": "off",
+	"terminal.integrated.env.osx": {
+		"FIG_NEW_SESSION": "1",
+		"CW_NEW_SESSION": "1",
+		"Q_NEW_SESSION": "1"
 	},
-	"editor.stickyScroll.enabled": true,
+	"terminal.integrated.fontFamily": "MesloLGL Nerd Font Mono",
 	"typescript.updateImportsOnFileMove.enabled": "always",
-	"biome_lsp.trace.server": "verbose",
-	"biome.lspBin": "",
-	"workbench.colorTheme": "Tokyo Night",
 	"window.zoomLevel": 1,
-	"editor.defaultFormatter": "biomejs.biome",
-	"[tailwindcss]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	"workbench.colorCustomizations": {},
+	"workbench.colorTheme": "Tokyo Night",
+	"workbench.editor.showTabs": "multiple",
+	"workbench.iconTheme": "symbols",
+	"workbench.list.smoothScrolling": true,
+	"workbench.sideBar.location": "right",
+	"workbench.statusBar.visible": true,
+	"[javascript]": {
+		"editor.fontLigatures": "'ss02', 'ss19'",
+		"editor.defaultFormatter": "biomejs.biome"
 	},
-	"editor.cursorSmoothCaretAnimation": "on",
-	"editor.snippetSuggestions": "top",
-	"editor.linkedEditing": true,
-	"git.openRepositoryInParentFolders": "never"
+	"[jsx]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[jsx-attr]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[jsx-tags]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[postcss]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[prisma]": {
+		"editor.defaultFormatter": "Prisma.prisma"
+	},
+	"[mjml]": {
+		"editor.useTabStops": true,
+		"editor.tabSize": 4
+	},
+	"[tailwindcss]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[plaintext]": {
+		"editor.quickSuggestions": {
+			"other": false,
+			"comments": false,
+			"strings": false
+		}
+	},
+	"[html]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"editor.mouseWheelZoom": false,
+	"symbols.hidesExplorerArrows": false,
+	// BETTER COMMENTS
+	"better-comments.multilineComments": true,
+	"better-comments.highlightPlainText": false,
+	"better-comments.tags": [
+		{
+			"tag": "!",
+			"color": "#FF2D00",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		},
+		{
+			"tag": "?",
+			"color": "#3498DB",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		},
+		{
+			"tag": "//",
+			"color": "#474747",
+			"strikethrough": true,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		},
+		{
+			"tag": "todo",
+			"color": "#FF8C00",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		},
+		{
+			"tag": "*",
+			"color": "#98C379",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		}
+	],
+	"tailwindCSS.experimental.configFile": null,
+	"tailwindCSS.emmetCompletions": true,
+	"editor.inlineSuggest.enabled": true,
+	"css.validate": false,
+	"workbench.editor.enablePreview": false,
+	"editor.formatOnSaveMode": "modificationsIfAvailable",
+	"editor.formatOnType": true,
+	"notebook.defaultFormatter": "biomejs.biome",
+	"amazonQ.suppressPrompts": {
+		"amazonQSessionConfigurationMessage": true,
+		"amazonQChatDisclaimer": true
+	},
+	"editor.wordWrap": "on",
+	"debug.console.wordWrap": false,
+	"go.toolsManagement.autoUpdate": true,
+	"gopls": { "ui.semanticTokens": true },
+	"biome.enabled": true,
+	"biome.requireConfiguration": true,
+	"biome.configurationPath": "biome.json",
+	"editor.defaultFormatter": "biomejs.biome",
+	"[css]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[go]": {
+		"editor.tabSize": 4,
+		"editor.defaultFormatter": "golang.go"
+	}
 }
 ```
